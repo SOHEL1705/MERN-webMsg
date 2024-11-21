@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { createExcel } from "@/app/helper/exelCreate";
 import axios from "axios";
+import Wrapper from "@/app/wrapper/Wrapper";
 export default function Salesmans() {
   const [data, setData] = useState([]);
 
@@ -20,6 +21,7 @@ export default function Salesmans() {
   }, []);
   return (
     <>
+    <Wrapper>
       <button onClick={() => downloadExcel() }className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Download Excel</button>
       {data.map((item) => (
         <div key={item._id}>
@@ -30,6 +32,7 @@ export default function Salesmans() {
           <h1>{item.phone}</h1>
         </div>
       ))}
+      </Wrapper>
     </>
   );
 }
